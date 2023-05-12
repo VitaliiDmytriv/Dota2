@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Dota2/build/static/css/main.2f0a8d91.css",
-    "main.js": "/Dota2/build/static/js/main.f154e75e.js",
-    "static/media/bg_repeater.jpg": "/Dota2/build/static/media/bg_repeater.0a1be8eca06a01c97024.jpg",
-    "static/media/SFProText-Bold.ttf": "/Dota2/build/static/media/SFProText-Bold.b47a61d3e22573c2ad2d.ttf",
-    "static/media/SFProText-Semibold.ttf": "/Dota2/build/static/media/SFProText-Semibold.018656c59af965ff3b1a.ttf",
-    "static/media/SFProText-Medium.ttf": "/Dota2/build/static/media/SFProText-Medium.e04d73af5736752604f8.ttf",
-    "static/media/SFProText-Regular.ttf": "/Dota2/build/static/media/SFProText-Regular.a2038fbd025bef23db0c.ttf",
-    "static/media/SFProText-Semibold.woff": "/Dota2/build/static/media/SFProText-Semibold.44178f89cc135ee00ba4.woff",
-    "static/media/SFProText-Medium.woff": "/Dota2/build/static/media/SFProText-Medium.2b86fc7036e8af2e21ee.woff",
-    "static/media/SFProText-Bold.woff": "/Dota2/build/static/media/SFProText-Bold.af8b04450a8675496641.woff",
-    "static/media/SFProText-Regular.woff": "/Dota2/build/static/media/SFProText-Regular.2c035a6ae2af4b61caba.woff",
-    "static/media/SFProText-Semibold.woff2": "/Dota2/build/static/media/SFProText-Semibold.14b89ca9db7ab0b43b74.woff2",
-    "static/media/SFProText-Medium.woff2": "/Dota2/build/static/media/SFProText-Medium.968b35bff0eaa5e62f09.woff2",
-    "static/media/SFProText-Bold.woff2": "/Dota2/build/static/media/SFProText-Bold.d4c22d1892d5dc527e76.woff2",
-    "static/media/SFProText-Regular.woff2": "/Dota2/build/static/media/SFProText-Regular.8a1ec97cd6b59d8bcb0f.woff2",
-    "index.html": "/Dota2/build/index.html",
-    "main.2f0a8d91.css.map": "/Dota2/build/static/css/main.2f0a8d91.css.map",
-    "main.f154e75e.js.map": "/Dota2/build/static/js/main.f154e75e.js.map"
+    "main.css": "/static/css/main.50e5d132.css",
+    "main.js": "/static/js/main.9ac713c8.js",
+    "static/media/bg_repeater.jpg": "/static/media/bg_repeater.0a1be8eca06a01c97024.jpg",
+    "static/media/SFProText-Bold.ttf": "/static/media/SFProText-Bold.b47a61d3e22573c2ad2d.ttf",
+    "static/media/SFProText-Semibold.ttf": "/static/media/SFProText-Semibold.018656c59af965ff3b1a.ttf",
+    "static/media/SFProText-Medium.ttf": "/static/media/SFProText-Medium.e04d73af5736752604f8.ttf",
+    "static/media/SFProText-Regular.ttf": "/static/media/SFProText-Regular.a2038fbd025bef23db0c.ttf",
+    "static/media/SFProText-Semibold.woff": "/static/media/SFProText-Semibold.44178f89cc135ee00ba4.woff",
+    "static/media/SFProText-Medium.woff": "/static/media/SFProText-Medium.2b86fc7036e8af2e21ee.woff",
+    "static/media/SFProText-Bold.woff": "/static/media/SFProText-Bold.af8b04450a8675496641.woff",
+    "static/media/SFProText-Regular.woff": "/static/media/SFProText-Regular.2c035a6ae2af4b61caba.woff",
+    "static/media/SFProText-Semibold.woff2": "/static/media/SFProText-Semibold.14b89ca9db7ab0b43b74.woff2",
+    "static/media/SFProText-Medium.woff2": "/static/media/SFProText-Medium.968b35bff0eaa5e62f09.woff2",
+    "static/media/SFProText-Bold.woff2": "/static/media/SFProText-Bold.d4c22d1892d5dc527e76.woff2",
+    "static/media/SFProText-Regular.woff2": "/static/media/SFProText-Regular.8a1ec97cd6b59d8bcb0f.woff2",
+    "index.html": "/index.html",
+    "main.50e5d132.css.map": "/static/css/main.50e5d132.css.map",
+    "main.9ac713c8.js.map": "/static/js/main.9ac713c8.js.map"
   },
   "entrypoints": [
-    "static/css/main.2f0a8d91.css",
-    "static/js/main.f154e75e.js"
+    "static/css/main.50e5d132.css",
+    "static/js/main.9ac713c8.js"
   ]
 }
