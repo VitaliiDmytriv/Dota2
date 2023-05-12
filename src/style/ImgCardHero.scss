@@ -1,0 +1,86 @@
+.ImgCardHero {
+    &__card {
+        position: relative;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+
+        // background-image: url("../img/bristleback.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 110%;
+
+        filter: grayscale(20%);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        transition: all 0.35s;
+
+        &:hover {
+            transform: scale(1.22);
+            background-size: 100%;
+            filter: grayscale(0%);
+            z-index: 100;
+        }
+
+        &:hover .ImgCardHero__name {
+            transform: translate(0%, -1.2rem);
+            bottom: -0.5rem;
+            opacity: 1;
+        }
+
+        &:hover .ImgCardHero__gradient {
+            background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 37%,
+                rgba(0, 0, 0, 0.98351161753764) 100%
+            );
+        }
+    }
+
+    &__gradient {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        transition: all 0.3s linear;
+    }
+
+    &__hero-img {
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    &__name {
+        position: absolute;
+        display: flex;
+        align-items: center;
+
+        left: 0.5rem;
+        right: 0.5rem;
+        transform-origin: bottom;
+        opacity: 0;
+
+        transition: all 0.4s linear;
+
+        img {
+            max-width: 2rem;
+            filter: drop-shadow(0px 0px 4px black);
+            width: calc(0.8rem + 2vw);
+            aspect-ratio: 1/1;
+        }
+
+        h3 {
+            margin-left: 0.5rem;
+            color: #ffff;
+            flex: 1;
+            text-transform: uppercase;
+
+            font-size: clamp(calc(0.3rem + 1vw), calc(0.3rem + 2vw), 1.5rem);
+        }
+    }
+}
+
+.hidden {
+    transform: scale(0);
+    transition: transform 0.3s;
+}

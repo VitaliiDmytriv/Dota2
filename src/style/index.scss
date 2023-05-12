@@ -1,0 +1,58 @@
+@import "fonts.scss";
+
+* {
+    font-family: "SF Pro Text";
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    background-image: url("../img/bg_repeater.jpg");
+    min-height: 100vh;
+    padding-top: 2rem;
+}
+
+.body {
+    width: min(90%, 75rem);
+    min-height: 100vh;
+    margin-inline: auto;
+    background-color: rgba(0, 0, 0, 0.45);
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.3rem;
+
+    @media (min-width: 37.5rem) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 75rem) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.loading {
+    color: white;
+
+    &::after {
+        content: "...";
+    }
+}
+
+.searchBar {
+    grid-column: 1/-1;
+
+    input {
+        outline: 0;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: inherit;
+        background-color: rgb(48, 52, 52);
+        border: 0;
+        color: #fff;
+    }
+}
