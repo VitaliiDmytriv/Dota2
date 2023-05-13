@@ -1,4 +1,3 @@
-import { logDOM } from "@testing-library/react";
 import { useEffect, useState } from "react";
 
 export default function useHeroStats(name) {
@@ -23,9 +22,8 @@ export default function useHeroStats(name) {
                 const AllabilitiesResponse = await fetch(URLAbilities);
                 const AllAbilities = await AllabilitiesResponse.json();
 
+                console.log(AllAbilities);
                 const abilities = createUpdatedAbilitiesArr(AllAbilities, name);
-                console.log(abilities);
-
                 setAbilities(abilities);
                 setAbility(abilities[0].abilityName);
 
@@ -55,8 +53,12 @@ export default function useHeroStats(name) {
         return `npc_dota_hero_${name}`;
     }
 
+    function findHeroAbilities(abilities, name) {
+        return abilities[changeNameForMatch(name)].abilities;
+    }
+
     function createUpdatedAbilitiesArr(abilities, name) {
-        const heroAby = abilities[changeNameForMatch(name)].abilities;
+        const heroAby = findHeroAbilities(abilities, name);
 
         return heroAby.map((ability, index) => {
             return index === 0
@@ -65,5 +67,13 @@ export default function useHeroStats(name) {
         });
     }
 
-    return { abilitiesExpend, hero, abilities, isLoading, ability, setAbility };
+    return {
+        abilitiesExpend,
+        hero,
+        abilities,
+        isLoading,
+        ability,
+        setAbility,
+        setAbilities,
+    };
 }

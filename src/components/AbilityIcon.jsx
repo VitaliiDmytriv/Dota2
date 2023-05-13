@@ -1,4 +1,4 @@
-function Ability({ URLBase, imgSrc,handleClick,isActive }) {
+function AbilityIcon({ URLBase, imgSrc,handleClick,isActive }) {
     
     const styles = {
         backgroundImage: `url(${URLBase}/apps/dota2/images/dota_react/abilities/${imgSrc}.png)`
@@ -18,4 +18,4 @@ function Ability({ URLBase, imgSrc,handleClick,isActive }) {
 }
 
 
-export default Ability;
+export default AbilityIcon;

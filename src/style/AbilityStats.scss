@@ -1,0 +1,84 @@
+.abilityStats {
+    max-width: 40.25rem;
+    margin: auto;
+    &__header {
+        background-color: #1e1e1e48;
+        padding: 1rem;
+    }
+
+    &__img {
+        width: calc(3rem + 3vw);
+        float: left;
+        margin: 0 0.8rem 0rem 0;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__heading {
+        font-size: min(calc(0.7rem + 2vw), 1.5rem);
+        margin-bottom: 0.5em;
+    }
+
+    &__pAbout {
+        font-size: min(calc(0.3rem + 2vw), 1rem);
+    }
+
+    &__body {
+        background-color: #000000a7;
+        padding: 1rem;
+
+        & > div:nth-child(2) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__body-2xGrid {
+        display: grid;
+        grid-template-columns: auto auto;
+        margin-bottom: 1rem;
+        gap: 0.3rem;
+    }
+
+    &__key {
+        text-transform: uppercase;
+        color: #737373;
+    }
+
+    &__value {
+    }
+
+    &__legend {
+        background-color: #1e1e1e48;
+        padding: 0.5rem;
+        margin-top: 1rem;
+        font-size: min(calc(0.2rem + 2vw), 0.875rem);
+        color: #aaaa;
+        font-style: italic;
+    }
+}
+
+.key_value {
+    margin-bottom: 0.1rem;
+    font-size: min(calc(0.2rem + 2vw), 1rem);
+}
+
+.cdIcon {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.manaIcon {
+    width: 1rem;
+    height: 1rem;
+    background: linear-gradient(#00a4db, #007196);
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.displayFlex {
+    display: flex;
+    align-items: center;
+}
