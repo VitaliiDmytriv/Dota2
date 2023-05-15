@@ -1,16 +1,18 @@
 import { useParams } from "react-router-dom"
 import '../style/heroPage.scss'
 import getMainAttr from '../function'
-import HeroAttributes from "../components/HeroAttributes";
-import HealthAndMana from "../components/HealthAndMana";
-import AbilityIcon from "../components/AbilityIcon";
+import HeroAttributes from "../components/Atributes/HeroAttributes";
+import HealthAndMana from "../components/Atributes/HealthAndMana";
 import useHeroStats from "../hooks/heroStats";
-import AbilityStats from "../components/AbilityStats";
-import { useState } from "react";
+import AbilityStats from "../components/Abilities/AbilityStats";
+import Video from "../components/Video";
+import Abilities from "../components/Abilities/Abilities";
+
+import { useEffect, useState } from "react";
+
 
 function HeroPageExpanded() {
     const { name } = useParams()
-    const [videoError, setVideoError] = useState(false)
 
     const URLBase = 'https://api.opendota.com'
 
@@ -21,38 +23,21 @@ function HeroPageExpanded() {
     function URLAttr(attr) {
         return `${URLBase}/apps/dota2/images/dota_react/icons/hero_${getMainAttr(attr)}.png`
     }
-
-    function URLAbilityVideo(heroName, abilityName) {
-        return `${URLBase}/apps/dota2/videos/dota_react/abilities/${heroName}/${abilityName}.webm`
-    }
     // ===================
 
     const { abilitiesExpend, hero, abilities, isLoading, ability, setAbility, setAbilities } = useHeroStats(name)
 
-    console.log(abilitiesExpend);
-    
-    function handleClick(abilityName) {
-        if (abilityName !== ability) {
+    console.log(abilities);
 
-            setAbility(abilityName);
+    function ScrollToTopOnPageChange() {
+        useEffect(() => {
+            window.scrollTo(0, 0);
+        }, []);
 
-            setAbilities(prev => (
-                prev.map(ability => (
-                    ability.abilityName === abilityName
-                    ? { ...ability, isActive: true }
-                    : { ...ability, isActive: false }
-                ))
-            ))
-        }
+        return null;
     }
 
-    function handleError() {
-        setVideoError(true)
-    }
-
-    function handleLoad() {
-        setVideoError(false)
-    }
+    ScrollToTopOnPageChange()
     
     return ( 
         <>
@@ -72,45 +57,15 @@ function HeroPageExpanded() {
                                         <div className="heroPage__img ">
                                             <img src={URLImgHero(name)} alt="" />
                                         </div>
-                                        <HeroAttributes
-                                            hero={hero}   
-                                        />
-                                        
+                                        <HeroAttributes hero={hero}/>
                                     </div>
-                                    <HealthAndMana
-                                        hero={hero}
-                                    />
+                                    <HealthAndMana hero={hero}/>
                                 </div>
                                 <div className="heroPage__videoAndAbilities">
-                                    <div className="heroPage__videoAbility">
-                                        <video
-                                            src={URLAbilityVideo(name, ability)} loop autoPlay muted onLoadedData={handleLoad} onError={handleError}
-                                        ></video>
-                                        {videoError && <h3 className="videoError">Can't find the video :&#40; <img src={`${URLBase}${hero.icon}`} alt="" /> </h3>}
-                                    </div>
-
-                                    <div className="heroPage__abilities" >
-                                        {abilities.map((ability, id) => {
-                                            const { abilityName, isActive } = ability
-                                            
-                                            if (abilityName !== 'generic_hidden' && !abilityName.includes('stop') && !abilityName.includes('end')) {
-                                                return (
-                                                    <AbilityIcon
-                                                        URLBase={URLBase}
-                                                        imgSrc={abilityName}
-                                                        key={id}
-                                                        handleClick={handleClick}
-                                                        isActive={isActive}
-                                                    />
-                                                )
-                                            }
-                                         })}
-                                    </div> 
-                                    
+                                    <Video URLBase={URLBase} ability={ability } name={name} iconSrc={hero.icon} />
+                                    <Abilities URLBase={URLBase} abilities={abilities} ability={ability} setAbilities={setAbilities} setAbility= {setAbility} />
                                     <AbilityStats stats={abilitiesExpend[ability]} />
-
                                 </div>
-                                
                             </div>
                     }
                 </div>

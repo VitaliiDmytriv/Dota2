@@ -1,4 +1,4 @@
-import AttrBox from "./AttrBox";
+import AttributeBox from "./AttributeBox";
 
 function HeroAttributes({ hero}) {
     const strength = `https://api.opendota.com/apps/dota2/images/dota_react/icons/hero_strength.png`
@@ -10,17 +10,17 @@ function HeroAttributes({ hero}) {
     return ( 
         <>
             <div className="heroPage__attr">
-                <AttrBox
+                <AttributeBox
                     imgSrc={strength}
                     mainAttr={base_str}
                     gainAttr = {str_gain.toFixed(1)}
                 />
-                <AttrBox
+                <AttributeBox
                     imgSrc={agility}
                     mainAttr={base_agi}
                     gainAttr = {agi_gain.toFixed(1)}
                 />
-                <AttrBox
+                <AttributeBox
                     imgSrc={intelligence}
                     mainAttr={base_int}
                     gainAttr = {int_gain.toFixed(1)}

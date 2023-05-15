@@ -1,11 +1,9 @@
-import '../style/AbilityStats.scss'
+import '../../style/AbilityStats.scss'
 import { nanoid } from 'nanoid'
 
 function AbilityStats({ stats }) {
-    // console.log(stats);
 
     const cdURL = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/cooldown.png'
-
 
     const {dname,img,desc,attrib,behavior,lore,dmg_type,dispellable,bkbpierce,target_team, cd, mc} = stats
 

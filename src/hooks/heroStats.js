@@ -25,7 +25,7 @@ export default function useHeroStats(name) {
                 console.log(AllAbilities);
                 const abilities = createUpdatedAbilitiesArr(AllAbilities, name);
                 setAbilities(abilities);
-                setAbility(abilities[0].abilityName);
+                setAbility(abilities.abilities[0].abilityName);
 
                 const abilitiesExpandResponse = await fetch(
                     URLAbilitiesExpended
@@ -54,17 +54,20 @@ export default function useHeroStats(name) {
     }
 
     function findHeroAbilities(abilities, name) {
-        return abilities[changeNameForMatch(name)].abilities;
+        return abilities[changeNameForMatch(name)];
     }
 
     function createUpdatedAbilitiesArr(abilities, name) {
         const heroAby = findHeroAbilities(abilities, name);
-
-        return heroAby.map((ability, index) => {
-            return index === 0
-                ? { abilityName: ability, isActive: true }
-                : { abilityName: ability, isActive: false };
-        });
+        console.log(heroAby);
+        return {
+            ...heroAby,
+            abilities: heroAby.abilities.map((ability, index) => {
+                return index === 0
+                    ? { abilityName: ability, isActive: true }
+                    : { abilityName: ability, isActive: false };
+            }),
+        };
     }
 
     return {

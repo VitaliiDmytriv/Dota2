@@ -1,4 +1,4 @@
-function AttrBox({imgSrc,mainAttr, gainAttr}) {
+function AttributeBox({imgSrc,mainAttr, gainAttr}) {
 
     return ( 
         <>
@@ -11,4 +11,4 @@ function AttrBox({imgSrc,mainAttr, gainAttr}) {
      );
 }
 
-export default AttrBox;
+export default AttributeBox;

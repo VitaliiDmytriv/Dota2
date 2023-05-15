@@ -7,7 +7,6 @@ function AbilityIcon({ URLBase, imgSrc,handleClick,isActive }) {
     return ( 
         <>
             <div
-                
                 className={`heroPage__ability ${isActive? 'active':''}`}
                 style={styles}
                 onClick={()=> handleClick(imgSrc)}
