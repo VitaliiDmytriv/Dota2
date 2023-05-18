@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
+import { URLAbilitiesExpended, URLAbilities, URLHeroStats } from "../api/URLs";
 
 export default function useHeroStats(name) {
-    const URLAbilitiesExpended = `https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json`;
-    const URLAbilities = `https://raw.githubusercontent.com/odota/dotaconstants/master/build/hero_abilities.json`;
-    const URLHeroStats = `https://api.opendota.com/api/heroStats`;
-
     const [abilitiesExpend, setAbilitiesExpend] = useState(null);
     const [abilities, setAbilities] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -59,7 +56,7 @@ export default function useHeroStats(name) {
 
     function createUpdatedAbilitiesArr(abilities, name) {
         const heroAby = findHeroAbilities(abilities, name);
-        console.log(heroAby);
+        // console.log(heroAby);
         return {
             ...heroAby,
             abilities: heroAby.abilities.map((ability, index) => {

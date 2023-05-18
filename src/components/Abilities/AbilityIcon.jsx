@@ -1,4 +1,6 @@
-function AbilityIcon({ URLBase, imgSrc,handleClick,isActive }) {
+import { URLBase } from '../../api/URLs' 
+
+function AbilityIcon({ imgSrc, handleClick, isActive }) {
     
     const styles = {
         backgroundImage: `url(${URLBase}/apps/dota2/images/dota_react/abilities/${imgSrc}.png)`
@@ -7,7 +9,7 @@ function AbilityIcon({ URLBase, imgSrc,handleClick,isActive }) {
     return ( 
         <>
             <div
-                className={`heroPage__ability ${isActive? 'active':''}`}
+                className={`heroPage__ability ${isActive && 'active'}`}
                 style={styles}
                 onClick={()=> handleClick(imgSrc)}
             >

@@ -1,11 +1,8 @@
 import '../style/ImgCardHero.scss'
 import { NavLink } from 'react-router-dom';
-import getMainAttr from '../function'
-
+import {URLBase,URLAttr} from '../api/URLs'
 
 function ImgCardHero({ hero }) {
-
-    const URLBase = 'https://api.opendota.com'
     
     const { localized_name, name, img, primary_attr} = hero
 
@@ -30,7 +27,7 @@ function ImgCardHero({ hero }) {
                     <div  className='ImgCardHero__hero-img'></div>
                     <div className='ImgCardHero__name'>
                         <img
-                            src={`${URLBase}/apps/dota2/images/dota_react/icons/hero_${getMainAttr(primary_attr)}.png`} alt="" />
+                            src={URLAttr(primary_attr)} alt="" />
                         <h3>{ localized_name}</h3>
                     </div>
                 </div>

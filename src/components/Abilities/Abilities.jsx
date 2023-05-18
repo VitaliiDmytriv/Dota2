@@ -1,7 +1,6 @@
 import AbilityIcon from "./AbilityIcon";
 
-
-function Abilities({ URLBase,abilities,ability,setAbilities,setAbility }) {
+function Abilities({ abilities,ability,setAbilities,setAbility }) {
     
     function handleClick(abilityName) {
         if (abilityName !== ability) {
@@ -30,7 +29,6 @@ function Abilities({ URLBase,abilities,ability,setAbilities,setAbility }) {
                     if (abilityName !== 'generic_hidden' && !abilityName.includes('stop') && !abilityName.includes('end')) {
                         return (
                             <AbilityIcon
-                                URLBase={URLBase}
                                 imgSrc={abilityName}
                                 key={id}
                                 handleClick={handleClick}

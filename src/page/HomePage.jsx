@@ -2,10 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import ImgCardHero from "../components/ImgCardHero";
 import getHeroesStats from '../api/getHeroStats';
 import { Skeleton } from '@mui/material'
+import {URLHeroStats} from '../api/URLs'
 
 function App() {
-
-    const URLHeroStats = `https://api.opendota.com/api/heroStats`;
 
     const skeletonArray = new Array(25).fill(0)
     const skeletonElement = useRef(null)

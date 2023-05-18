@@ -1,9 +1,8 @@
 import '../../style/AbilityStats.scss'
 import { nanoid } from 'nanoid'
+import {URLCd,URLBase} from "../../api/URLs"
 
 function AbilityStats({ stats }) {
-
-    const cdURL = 'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/icons/cooldown.png'
 
     const {dname,img,desc,attrib,behavior,lore,dmg_type,dispellable,bkbpierce,target_team, cd, mc} = stats
 
@@ -20,7 +19,7 @@ function AbilityStats({ stats }) {
             <div key={nanoid()} className={`key_value ${isManaOrCd && 'displayFlex'}`}>
                 { 
                     isManaOrCd ?
-                        isCd ? <img className='cdIcon' src={cdURL} alt="" /> : <span className='manaIcon'></span>
+                        isCd ? <img className='cdIcon' src={URLCd} alt="" /> : <span className='manaIcon'></span>
                         :
                         <span className="abilityStats__key">{canMap ? key : `${key} : `} </span>             
                 }
@@ -42,7 +41,7 @@ function AbilityStats({ stats }) {
             <article className="abilityStats">
                 <header className="abilityStats__header">
                     <div className="abilityStats__img">
-                        <img src={`https://api.opendota.com${img}` } alt="" />
+                        <img src={`${URLBase}${img}` } alt="" />
                     </div>
                     <div>
                         <h2 className="abilityStats__heading">{ dname}</h2>

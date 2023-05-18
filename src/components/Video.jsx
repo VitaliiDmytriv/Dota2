@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { URLBase } from '../api/URLs' 
 
-function Video({name,ability,iconSrc,URLBase}) {
+function Video({name,ability,iconSrc}) {
 
     const [videoError, setVideoError] = useState(false)
 
