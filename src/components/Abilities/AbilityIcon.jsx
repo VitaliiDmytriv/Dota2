@@ -1,4 +1,4 @@
-import { URLBase } from '../../api/URLs' 
+import { URLBase } from '../../constants/URLs' 
 
 function AbilityIcon({ imgSrc, handleClick, isActive }) {
     

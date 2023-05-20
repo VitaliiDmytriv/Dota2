@@ -1,6 +1,6 @@
 import AbilityIcon from "./AbilityIcon";
 
-function Abilities({ abilities,ability,setAbilities,setAbility }) {
+function AbilitiesList({ abilities,ability,setAbilities,setAbility }) {
     
     function handleClick(abilityName) {
         if (abilityName !== ability) {
@@ -42,4 +42,4 @@ function Abilities({ abilities,ability,setAbilities,setAbility }) {
     );
 }
 
-export default Abilities;
+export default AbilitiesList;

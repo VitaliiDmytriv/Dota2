@@ -1,6 +1,6 @@
 import '../../style/AbilityStats.scss'
 import { nanoid } from 'nanoid'
-import {URLCd,URLBase} from "../../api/URLs"
+import {URLCd,URLBase} from "../../constants/URLs"
 
 function AbilityStats({ stats }) {
 

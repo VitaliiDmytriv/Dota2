@@ -1,43 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect} from 'react';
 import ImgCardHero from "../components/ImgCardHero";
-import getHeroesStats from '../api/getHeroStats';
-import { Skeleton } from '@mui/material'
-import {URLHeroStats} from '../api/URLs'
+import {URLHeroStats} from '../constants/URLs'
+import useFetch from '../hooks/useFetch';
+import SkeletHomePage from '../components/Skeletons/SkeletHomePage';
+import {checkData} from '../utils/utils'
 
 function App() {
-
     const skeletonArray = new Array(25).fill(0)
-    const skeletonElement = useRef(null)
 
+    let sortedHeroes = null
     const [heroes, setHeroes] = useState(null)
-    const [allHeroes, setAllHeroes] = useState(null)
-    const [isLoading, setIsLoading] = useState(true);
     const [inputValue, setInputValue] = useState('');
-    const [skeletonHeight, setSkeletonHeight] = useState(0)
-    
-    useEffect(() => {
 
-        getHeroesStats(URLHeroStats)
-            .then(data => {
-                const sortedHeroes = sortAlphabetical(data)
-                setHeroes(sortedHeroes)
-                setAllHeroes(sortedHeroes)
-                setIsLoading(false)                
-            })
-        
-    }, []); 
+    const [allHeroes, loading, error] = useFetch(URLHeroStats)
 
     useEffect(() => {
-        const heigthOfSkeleton = getDomElementHeigth(skeletonElement)
-        setSkeletonHeight(heigthOfSkeleton) 
-    }, []);
-
-    function getDomElementHeigth(domElement) {
-        if (domElement.current) {
-            const {width } = window.getComputedStyle(domElement.current)
-            return parseFloat(width) / (16 / 9)
+        if (allHeroes) {
+            sortedHeroes = sortAlphabetical(allHeroes)
+            setHeroes(sortedHeroes)
         }
-    }    
+    },[allHeroes])  
 
     function sortAlphabetical(allHeroes) {
         return [...allHeroes]
@@ -49,25 +31,20 @@ function App() {
     }
 
     function renderHeroes(heroes) {
-        return heroes.map(hero => {
-            return (
-                <ImgCardHero hero={ hero} key={hero.id} />
-            )
-        })
+        return heroes.map(hero => <ImgCardHero hero={ hero} key={hero.id} />)
     }
 
     function handleInputChange(event) {
         const { value } = event.target
         setInputValue(value)
 
-        const filteredHeroes = filterHeroesByInput(allHeroes,value)
+        const filteredHeroes = filterHeroesByInput(sortedHeroes,value)
         setHeroes(filteredHeroes);
     }    
 
     return (
         <main className="main">
-            <div className="body">
-                
+            <section className="body">
                 <div className="grid" >
                     <div className='searchBar'>
                         <input
@@ -79,26 +56,14 @@ function App() {
                         />
                     </div>
                     {
-                        isLoading ?
-                            skeletonArray.map((skelet,id) => {
-                                return (
-                                    <Skeleton 
-                                        ref = {skeletonElement}
-                                        key ={id}
-                                        variant='rectangular'
-                                        width={'100%'}
-                                        height={skeletonHeight}
-                                        animation='wave'
-                                        sx={{bgcolor: 'grey.900'}}
-                                    />
-                                )
-                            })
+                        loading ?
+                            skeletonArray.map((skelet,id) => <SkeletHomePage key={id}/>)
+                            :
+                            checkData(heroes) && renderHeroes(heroes)
                             
-                            : 
-                            renderHeroes(heroes)
                     }
                 </div>
-            </div>
+            </section>
         </main>
     )
     

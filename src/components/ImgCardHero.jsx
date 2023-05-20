@@ -1,6 +1,6 @@
 import '../style/ImgCardHero.scss'
 import { NavLink } from 'react-router-dom';
-import {URLBase,URLAttr} from '../api/URLs'
+import {URLBase,URLAttr} from '../constants/URLs'
 
 function ImgCardHero({ hero }) {
     

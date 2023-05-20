@@ -5,24 +5,14 @@ import HealthAndMana from "../components/Atributes/HealthAndMana";
 import useHeroStats from "../hooks/heroStats";
 import AbilityStats from "../components/Abilities/AbilityStats";
 import Video from "../components/Video";
-import Abilities from "../components/Abilities/Abilities";
-import {URLBase,URLImgHero,URLAttr} from '../api/URLs'
-
-import { useEffect } from "react";
-
+import AbilitiesList from "../components/Abilities/AbilitiesList";
+import {URLBase,URLImgHero,URLAttr} from '../constants/URLs'
+import {ScrollToTopOnPageChange} from '../utils/utils'
 
 function HeroPageExpanded() {
     const { name } = useParams()
 
     const { abilitiesExpend, hero, abilities, isLoading, ability, setAbility, setAbilities } = useHeroStats(name)
-
-    function ScrollToTopOnPageChange() {
-        useEffect(() => {
-            window.scrollTo(0, 0);
-        }, []);
-
-        return null;
-    }
 
     ScrollToTopOnPageChange()
     
@@ -50,7 +40,7 @@ function HeroPageExpanded() {
                                 </div>
                                 <div className="heroPage__videoAndAbilities">
                                     <Video ability={ability } name={name} iconSrc={hero.icon} />
-                                    <Abilities URLBase={URLBase} abilities={abilities} ability={ability} setAbilities={setAbilities} setAbility= {setAbility} />
+                                    <AbilitiesList URLBase={URLBase} abilities={abilities} ability={ability} setAbilities={setAbilities} setAbility= {setAbility} />
                                     <AbilityStats stats={abilitiesExpend[ability]} />
                                 </div>
                             </div>

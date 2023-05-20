@@ -45,6 +45,8 @@
     },
     "devDependencies": {
         "sass": "^1.62.0",
-        "sass-loader": "^13.2.2"
+        "sass-loader": "^13.2.2",
+        "ts-loader": "^9.4.2",
+        "typescript": "^5.0.4"
     }
 }

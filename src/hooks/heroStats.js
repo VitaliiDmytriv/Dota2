@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { URLAbilitiesExpended, URLAbilities, URLHeroStats } from "../api/URLs";
+import {
+    URLAbilitiesExpended,
+    URLAbilities,
+    URLHeroStats,
+} from "../constants/URLs";
 
 export default function useHeroStats(name) {
     const [abilitiesExpend, setAbilitiesExpend] = useState(null);

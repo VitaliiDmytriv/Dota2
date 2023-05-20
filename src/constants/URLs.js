@@ -1,3 +1,5 @@
+import { getMainAttr } from "../utils/utils";
+
 const URLBase = "https://api.opendota.com";
 
 const URLAbilitiesExpended = `https://raw.githubusercontent.com/odota/dotaconstants/master/build/abilities.json`;
@@ -17,25 +19,8 @@ function URLAttr(attr) {
     )}.png`;
 }
 
-function getMainAttr(attr) {
-    let mainAttr;
-    switch (attr) {
-        case "int":
-            mainAttr = "intelligence";
-            break;
-        case "agi":
-            mainAttr = "agility";
-            break;
-        case "str":
-            mainAttr = "strength";
-            break;
-        case "all":
-            mainAttr = "universal";
-            break;
-        default:
-            break;
-    }
-    return mainAttr;
+function URLVideo(name, ability) {
+    return `${URLBase}/apps/dota2/videos/dota_react/abilities/${name}/${ability}.webm`;
 }
 
 export {
@@ -46,4 +31,5 @@ export {
     URLCd,
     URLImgHero,
     URLAttr,
+    URLVideo,
 };
